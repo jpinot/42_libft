@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 19:42:29 by jpinyot           #+#    #+#             */
-/*   Updated: 2017/11/14 22:54:42 by jpinyot          ###   ########.fr       */
+/*   Updated: 2017/11/17 04:05:26 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,7 @@ int		ft_strequ(char const *s1, char const *s2)
 {
 	if (s1 == NULL || s2 == NULL)
 		return (0);
-	if (!*s1 || !*s2)
+	if (!ft_strcmp(s1, s2))
 		return (1);
-	while (*s1 || *s2)
-	{
-		if (*s1 != *s2)
-			return (0);
-		s1++;
-		s2++;
-	}
-	return (1);
+	return (0);
 }

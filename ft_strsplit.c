@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:15:12 by jpinyot           #+#    #+#             */
-/*   Updated: 2017/11/16 22:16:10 by jpinyot          ###   ########.fr       */
+/*   Updated: 2017/11/17 04:55:50 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,11 @@ static int	ft_le(const char *s, char c)
 	return (cnt);
 }
 
-char		**ft_strsplit(char const *s, char c)
+static char	**cpy_ft(char **str, const char *s, char c)
 {
 	int		i;
 	size_t	k;
-	char	**str;
 
-	if (s == NULL)
-		return (NULL);
-	if (!(str = (char **)malloc(sizeof(char *) * (len_c(s, c) + 1))))
-		return (NULL);
 	i = 0;
 	k = 0;
 	while (s[i])
@@ -77,5 +72,22 @@ char		**ft_strsplit(char const *s, char c)
 		k++;
 	}
 	str[k] = NULL;
+	return (str);
+}
+
+char		**ft_strsplit(char const *s, char c)
+{
+	char	**str;
+
+	if (s == NULL)
+		return (NULL);
+	if (!(str = (char **)malloc(sizeof(char *) * (len_c(s, c) + 1))))
+		return (NULL);
+	if (len_c(s, c) == 0)
+	{
+		*str = 0;
+		return (str);
+	}
+	str = cpy_ft(str, s, c);
 	return (str);
 }

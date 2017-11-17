@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 03:09:44 by jpinyot           #+#    #+#             */
-/*   Updated: 2017/11/11 22:03:41 by jpinyot          ###   ########.fr       */
+/*   Updated: 2017/11/17 03:35:42 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 size_t	ft_strlcat(char *dst, const char *str, size_t size)
 {
-	size_t i;
-	size_t a;
 	size_t d_len;
 	size_t s_len;
 
-	i = ft_strlen(dst);
-	a = 0;
-	d_len = i;
+	d_len = ft_strlen(dst);
 	s_len = ft_strlen(str);
-	if (size < i + 1)
-		return (s_len + size);
+	if (size <= d_len)
+		return (size + s_len);
+	if (s_len < size - d_len)
+	{
+		ft_memcpy(dst + d_len, str, s_len);
+		dst = dst + d_len + s_len;
+	}
 	else
 	{
-		while (i < size - 1)
-			dst[i++] = str[a++];
-		dst[i] = 0;
+		ft_memcpy(dst + d_len, str, size - d_len - 1);
+		dst = dst + size - 1;
 	}
+	*dst = 0;
 	return (d_len + s_len);
 }
