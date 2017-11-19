@@ -6,7 +6,7 @@
 #    By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 00:34:47 by jpinyot           #+#    #+#              #
-#    Updated: 2017/11/17 23:09:07 by jpinyot          ###   ########.fr        #
+#    Updated: 2017/11/19 20:58:19 by jpinyot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,9 +77,9 @@ OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	@gcc $(FLAGS) -I. -c $(SRCS)
-	@ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+		@gcc $(FLAGS) -I. -c $(SRCS)
+		@ar rc $(NAME) $(OBJ)
 
 clean:
 	@/bin/rm -f $(OBJ)
@@ -89,3 +89,5 @@ fclean: clean
 
 re: fclean
 	make
+
+.PHONY: all clean fclean re
