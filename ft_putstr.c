@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 17:55:02 by jpinyot           #+#    #+#             */
-/*   Updated: 2017/11/14 17:56:39 by jpinyot          ###   ########.fr       */
+/*   Updated: 2017/11/21 19:03:23 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,5 @@
 void	ft_putstr(const char *s)
 {
 	if (s != NULL)
-	{
-		while (*s)
-		{
-			ft_putchar(*s);
-			s++;
-		}
-	}
+		write(1, s, ft_strlen(s));
 }
