@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 00:03:03 by jpinyot           #+#    #+#             */
-/*   Updated: 2017/11/17 20:11:54 by jpinyot          ###   ########.fr       */
+/*   Updated: 2017/11/22 20:44:16 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(list->content = (char *)malloc(sizeof(content))))
+		if (!(list->content = (char *)malloc(content_size)))
 			return (NULL);
 		list->content_size = content_size;
 		ft_strncpy(list->content, content, content_size);
