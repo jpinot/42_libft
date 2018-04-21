@@ -6,7 +6,7 @@
 #    By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 00:34:47 by jpinyot           #+#    #+#              #
-#    Updated: 2018/04/17 13:02:05 by jpinyot          ###   ########.fr        #
+#    Updated: 2018/04/21 17:57:51 by jpinyot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,13 +80,16 @@ OBJ = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+		$(MAKE) -C ft_printf
 		@gcc $(FLAGS) -I. -c $(SRCS)
 		@ar rc $(NAME) $(OBJ)
 
 clean:
+	$(MAKE) -C ft_printf clean
 	@/bin/rm -f $(OBJ)
 
 fclean: clean
+	$(MAKE) -C ft_printf fclean
 	@/bin/rm -f $(NAME)
 
 re: fclean

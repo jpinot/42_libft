@@ -6,7 +6,7 @@
 /*   By: jpinyot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 02:45:44 by jpinyot           #+#    #+#             */
-/*   Updated: 2018/04/21 17:52:14 by jpinyot          ###   ########.fr       */
+/*   Updated: 2018/04/21 18:02:15 by jpinyot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "./ft_printf/includes/libprintf.h"
 # define BUFF_SIZE 1
 
 typedef struct		s_list
